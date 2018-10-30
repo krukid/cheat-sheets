@@ -20,8 +20,8 @@ Ignore current session data (reset):
 ## Querying flights
 
     A[<query-mod>]<depart-date><from><to><options>[++<return-date>[<from><to>]<options>]
-    CDDMMMXXXYYY*ZZ
-    CDDMMMXXXYYY@2Q/BT.D++15FEB/EK
+    # CDDMMMXXXYYY*ZZ
+    # CDDMMMXXXYYY@2Q/BT.D++15FEB/EK
 
 ### Legend
 
