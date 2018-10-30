@@ -20,42 +20,32 @@ Ignore current session data (reset):
 ## Querying flights
 
     A[<query-mod>]<depart-date><from><to><options>[++<return-date>[<from><to>]<options>]
-    # CDDMMMXXXYYY*ZZ
-    # CDDMMMXXXYYY@2Q/BT.D++15FEB/EK
+
+**`<options>`**
+
+- `*<carrier>` - e.g. `BT`, `EK`
+- `@<seats><class>/<carrier>`
+- `.D` - direct flights
 
 ### Legend
 
-**<depart-date> - departure date**
+**`<depart-date>` - departure date**
 
 `23NOV`, `05OCT`
 
-**<from>, <to> - departure/arrival airport code**
+**`<from>`, `<to>` - departure/arrival airport code**
 
 `RIX`, `DXB`, `KHI`
 
-**<carrier> - airline carrier**
-
-`EK`, `BT`
-
 ## Selecting specific flight from list
 
-    A@#_
-
-**param 1 - number**
+    A@#<list-index>
 
 ## Selecting specific seating
 
-    N_L_
+    N<seats><class><?>
 
-**param 1 - number of passengers**
-
-`N1`, `N2`
-
-**param 2 - seat class(?)**
-
-`L1`, `L2`
-
-## Create a booking (after flight/seat selection)
+## Create a booking (after flight/seat selection) -- draft
 
 1. `N.BASHIR/HARISMR` - name field, or:<br>
    `N.2BARTON/ANSREWMR/CHRISTYMRS`
@@ -67,7 +57,7 @@ Ignore current session data (reset):
 7. `IR` - ignore and retrieve (final booking, only on ended/completed PNRs), or:<br>
    `XI` - cancel itinerary
 
-## Additional queries (maybe)
+## Additional queries -- draft
 
 Last Air, Shopping, Hotels, FS + Hotels, Cars
 
@@ -96,9 +86,9 @@ If a flight arrives 1 day after original departure with one segment:
 
 `BL`, `A5`, `H0`, `JC`, `XA`, `GR`
 
-**parameter 1 - booking code**
+**1st letter - seat class**
 
-**parameter 2 - availability code**
+**2nd letter - availability code**
 
 - A - available
 - R - seats on request
@@ -109,7 +99,7 @@ If a flight arrives 1 day after original departure with one segment:
 
 ## Examples
 
-**Querying all flights**
+**Querying outgoing flights**
 
     A23NOVDXBKHI*EK
     A10NOVRIXVRN*BT
@@ -135,6 +125,6 @@ Query for 1 passenger with booking code C (round trip) with AA airline:
     A@#1
     A@#2
 
-**Selecting specific seating**
+**Selecting specific seating --draft**
 
     N1L1
