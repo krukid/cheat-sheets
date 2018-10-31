@@ -39,6 +39,18 @@ Ignore current session data (reset):
     A3OCT
     ABMAN
     AOLHR
+    
+**availability commands**
+
+- *I
+- *R - refresh availability
+- *SVC - display detailed service information
+
+**segment modification commands**
+
+- `/<after-index>S<list-index>` - insert segment with given `<list-index>` after `<after-index>`
+- `X<list-index>([.-]<list-index>)+` - delete given indices (`.` means list, `-` means range)
+- `@<class>/<list-index>([.-]<list-index>)+` - change seat class for given indices
 
 **parameters**
 
@@ -59,7 +71,8 @@ Ignore current session data (reset):
 
     N<seats>(<class><list-index>)+[*]
 
-## Create a booking (after flight/seat selection) -- draft
+<!--
+## Create a booking (after flight/seat selection)
 
 1. `N.BASHIR/HARISMR` - name field, or:<br>
    `N.2BARTON/ANSREWMR/CHRISTYMRS`
@@ -70,10 +83,12 @@ Ignore current session data (reset):
 6. `ER` - end and retrieve PNR (displays prompt)
 7. `IR` - ignore and retrieve (final booking, only on ended/completed PNRs), or:<br>
    `XI` - cancel itinerary
-
+   
 ## Additional queries -- draft
 
 Last Air, Shopping, Hotels, FS + Hotels, Cars
+
+-->
 
 ## Flight info
 
