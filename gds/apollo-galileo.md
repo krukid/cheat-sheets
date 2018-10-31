@@ -17,33 +17,47 @@ Ignore current session data (reset):
 
     I
 
-## Querying flights
+## Querying availability
 
-    A[<query-mod>]<depart-date><from><to><options>[++<return-date>[<from><to>]<options>]
+**main query format**
 
-**`<options>`**
+    A<depart-date><from><to><options>[++<return-date>[<from><to>]<options>]
+    
+**follow-up query format --draft**
 
-- `*<carrier>` - e.g. `BT`, `EK`
-- `@<seats><class>/<carrier>`
-- `.D` - direct flights
+    AF<depart-date><from><to><options>
+    
+**return flight follow-up query format**
 
-### Legend
+    AR<depart-date><options>    
 
-**`<depart-date>` - departure date**
+**other follow-up query formats**
 
-`23NOV`, `05OCT`
+    A/AA#
+    A@O
+    A.D
+    A3OCT
+    ABMAN
+    AOLHR
 
-**`<from>`, `<to>` - departure/arrival airport code**
+**parameters**
 
-`RIX`, `DXB`, `KHI`
+- `<from>`, `<to>` - departure/arrival airport code, e.g. `LHR`, `MAN`
+- `<depart-date>` - departure date, e.g. `23NOV`, `5OCT`, `03SEP`
+- `<options>`:
+    - `/<carrier>[#]` - e.g. `/BT#`
+    - `*<carrier>[#]` - e.g. `*BT`
+    - `@[<seats>]<class>` - e.g. `@2Y`
+    - `.D` - direct flights
 
 ## Selecting specific flight from list
 
     A@#<list-index>
+    A*C<list-index>
 
 ## Selecting specific seating
 
-    N<seats><class><?>
+    N<seats>(<class><list-index>)+[*]
 
 ## Create a booking (after flight/seat selection) -- draft
 
@@ -74,7 +88,7 @@ See: https://support.travelport.com/webhelp/Smartpoint1G1V/Content/Air/AirAvaila
 
 If a flight arrives 1 day after original departure with one segment:
 
-1. `<segment_number>/` appended to date
+1. `<segment_number>/` appended as destination modifier
 2. `#` inserted between times if there is a 1 day difference<br>
    `*` inserted between times if there is a 2 day difference
 
@@ -102,7 +116,10 @@ If a flight arrives 1 day after original departure with one segment:
 **Querying outgoing flights**
 
     A23NOVDXBKHI*EK
+    A23NOVDXBKHI/EK
+
     A10NOVRIXVRN*BT
+    A23NOVDXBKHI/BT
 
 **Querying round trip flights**
 
@@ -124,7 +141,8 @@ Query for 1 passenger with booking code C (round trip) with AA airline:
 
     A@#1
     A@#2
+    A*C3
 
-**Selecting specific seating --draft**
+**Selecting specific seating**
 
-    N1L1
+    N1L1M2Y3*
