@@ -1,0 +1,9 @@
+# find out the location of your global npm install location
+NPM_G=$(npm ls <package> -g ...)
+
+# debugging in node repl (node cli tool)
+$ npm i <package> -g
+$ NODE_PATH="${NPM_G}/node_modules" node
+> var lo = require('lodash') # don't use "_", it's reserved!
+> var qs = require('querystring') # built-in libs
+> ...

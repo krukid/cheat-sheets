@@ -1,0 +1,2 @@
+# get changelog for package
+apt-get changelog wpasupplicant

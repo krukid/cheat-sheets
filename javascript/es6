@@ -1,0 +1,10 @@
+// generators
+
+h = {a: 1, b: 2}
+h[Symbol.iterator] = function*() {
+  const kk = Object.keys(this);
+  for (let i = 0; i < kk.length; ++i) {
+    yield [kk[i], this[kk[i]]]
+  }
+}
+for (const [k,v] of h) { console.log(k, v) }

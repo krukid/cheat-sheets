@@ -1,0 +1,12 @@
+# convert windows newlines to unix newlines
+flip -u target/file/path
+
+# useful cli tools
+tr, cut, grep, tail, head
+
+# replace text in file
+sed -i s/source/target/ FILE
+
+# recursively search for pattern in directory
+grep --exclude=".*" --exclude-dir=".?*" -rn . -e 'pattern'
+

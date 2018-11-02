@@ -1,0 +1,63 @@
+1. emberjs
+  + framework similar to RoR
+  + strong conventions
+  + seemingly good support
+  + seemingly growing community
+  + controlled evolution
+  + clean dependency injection for services
+  + awesome tooling (tests, generators, plugins)
+  + UI is separated from logic that is not directly related (separate folders though)
+  + nice handlebar templates
+
+  - conventional project structure hard to maintain for large code bases
+  - lots of stuff hidden under the hood, unclear how to integrate things
+  - not a pure component-based solution (may be a good thing, actually)
+  - not a pure flux solution (Rails-y controllers, helpers)
+  - SSR via fastboot plugin that looks hacky
+  - templates not as flexible as JSX components
+
+2. angular 2
+  + clean dependency injection for services
+  + UI is separated from logic that is not directly related
+  + controlled evolution
+  + seemingly good support
+  + seemingly growing community
+
+  - typescript preferred, smells like Java throughout
+  - does not seem to be opinionated about project structure
+  - lots under the hood
+  - not a pure flux solution (bidirectional data flow, tricky component dependencies, internal events, etc)
+  - does not have SSR out of the box
+  - templates not as flexible as JSX components
+  - weird angular-specific macros in templates
+  - few conventions
+  - small community
+
+3. react/redux frankenstein
+  + pure flux solution (redux)
+  + pure component-based solution
+  + has SSR out of the box
+  + webpack hot reload with state, state debugger and time machine, etc
+  + UI markup is just code, so much more flexible than templates
+
+  - not a framework
+  - no preferred tooling
+  - no dependency injection for services out of the box
+  - lack of conventions
+  - lack of support
+  - transient community
+  - rapid uncontrolled mutation
+  - UI markup is stuffed with the rest of component code
+  - lots of bugs in dependencies that you have to solve yourself
+
+4. meteor
+  + can be used with React;
+  + opinionated
+  + controlled evolution
+  + SSR supported
+
+  - is coupled with MongoDB, disabling it is non-trivial
+  - heavily commercialized
+
+5. react/relay
+  # looks promising, not really usable yet

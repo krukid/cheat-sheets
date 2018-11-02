@@ -1,0 +1,8 @@
+# chaining
+
+_({a: 100, b: 200})  # construct defaults (value=0) based on the object's keys
+  .keys()
+  .map(k => [k, 0])
+  .fromPairs()
+  .assign({a: 5})    # merge in new available values
+  .value()           # end chain

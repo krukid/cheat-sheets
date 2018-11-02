@@ -1,0 +1,11 @@
+# monitor docker container stuff and notify on change
+
+watch --chgexit --interval 10 "docker ps -f name=app-container-dev --format='{{.RunningFor}}' " \
+  && spd-say -t female3 -i +20 "Development container runtime changed!"
+
+# monitor file change and notify
+
+watch --chgexit --internal 10 "cat testfile" \
+  && spd-say -t female3 "`tail -n 1 testfile`"
+
+try: echo "Hello world" >> testfile (touch testfile before running watch)

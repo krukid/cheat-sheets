@@ -1,0 +1,12 @@
+https://www.sqlite.org/lang_datefunc.html
+
+# add int column foo to table bar
+alter table bar add column foo int;
+
+# create table
+create table foo(a, b);
+
+# import data from csv
+.mode csv
+[.separator "\t"]
+.import relative-source-path.csv foo

@@ -1,0 +1,2 @@
+# filter files within current directory (absolute paths)
+find $PWD -type f -maxdepth 1 ! -name Selection\*

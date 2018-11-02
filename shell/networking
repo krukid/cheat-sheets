@@ -1,0 +1,23 @@
+# VPN + DNS
+setup "dnsmasq" to cache DNS entries locally and avoid VPN-based DNS overrides
+(fixes broken DNS on abnormal VPN tunnel termination)
+
+install package, copy configs, set DHCP (addresses only) to 127.0.0.1 for
+WIFI etc networks and VPN
+
+# CLI
+sudo service network-manager restart
+
+# TCPDUMP
+# dump outgoing VPN/UDP graylog traffic (verbose, hex+ascii)
+sudo tcpdump -i tun0 udp port 12201 -P out -vv -X
+
+# all local UDP traffic
+sudo tcpdump -i lo udp port 8089 -vv -X
+
+# dump outgoing TCP/HTTP traffic
+sudo tcpdump -i eth0 tcp port 80 -P out -vv -X
+sudo tcpdump -i wlan0 tcp port 1338 -Q out -vv -X
+
+# print just the ip given an interface name
+ipconfig getifaddr en0

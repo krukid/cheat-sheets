@@ -1,0 +1,14 @@
+const CamelizeMixin = Ember.Mixin.create({
+  camelizeObject(obj) {
+    const mapping = {Array: [], Object: {}};
+    const node = mapping[objectClassName(obj)];
+    for (const key in obj) {
+      let value = obj[key];
+      if (typeof value === 'object') {
+        value = this.camelizeObject(obj[key]);
+      }
+      node[Ember.String.camelize(key)] = value;
+    }
+    return node;
+  },
+});

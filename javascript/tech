@@ -1,0 +1,31 @@
+react -- https://www.codeschool.com/courses/powering-up-with-react
+         https://egghead.io/courses/react-fundamentals
+         https://facebook.github.io/react/
+redux -- https://egghead.io/courses/getting-started-with-redux
+         http://redux.js.org/
+node  -- https://www.codeschool.com/courses/real-time-web-with-node-js
+
+
+react styling --
+https://www.pluralsight.com/courses/react-styling-components
+
+es2015, hoisting, variadic functions, lexical binding, continuation-passing style (CPS) --
+http://campus.codeschool.com/courses/es2015-the-shape-of-javascript-to-come
+
+currying --
+http://javascript.crockford.com/www_svendtofte_com/code/curried_javascript/
+
+binding --
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+
+GRASP, SOLID, 12-factor app, CQRS, Flux --
+https://en.wikipedia.org/wiki/GRASP_%28object-oriented_design%29
+https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+http://12factor.net/
+...
+
+
+~~~~~~~~~~~~~~~~
+* WeakMap, WeakSet -- memory efficient versions of Map and Set, only objects as keys, can't count, allows GC of unused keys, uses weak references as keys
+* Web Workers -- event-based client-side computation in background threads (uses actual system threads) that allows network IO and cross page access
+* {a: 1, b: 2, c() { return foo }}

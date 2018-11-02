@@ -1,0 +1,3 @@
+# generate random password
+
+apg -a1 -m20

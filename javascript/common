@@ -1,0 +1,3 @@
+# create a string of N repeated characters
+
+new Array(N).join(char)

@@ -1,0 +1,8 @@
+# turn on screen saver and lock
+gnome-screensaver-command -l
+
+# turn off screen until input
+xset dpms force off
+
+# turn on screen
+xset dpms force on

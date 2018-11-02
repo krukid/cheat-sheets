@@ -1,0 +1,5 @@
+Nodemon -- dev server hot reload tool
+PM2 -- process manager, can also do server hot reload, supports clustering and much more
+Forever -- keeps your server from dying
+Concurrently -- runs several processes concurrently (bugs with --kill-others: race condition or piping issue?)
+Node-Supervisor -- Nodemon+Forever

@@ -1,0 +1,16 @@
+chartist --
+  works well with SSR, integratable styles and such, but lacks the ability to
+  mix several types of charts and display different scales at the same time
+
+chart.js --
+  does not work with SSR out of the box, but can be wrapped in a CSR-only
+  component. allows mixing various types of charts, but such advanced use
+  causes lots of rendering bugs that can't be worked around
+
+flot --
+  doesn't work with SSR, depends on jquery, but can be customized rather well.
+  a workaround is to display it in an iframe and package separately from main
+  code
+
+google charts --
+  ?

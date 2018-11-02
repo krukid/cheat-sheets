@@ -1,0 +1,16 @@
+# agent forwarding:
+
+add to ~/.ssh/config:
+  ForwardAgent yes
+
+alternatively:
+  ssh -A ...
+  ssh -o "ForwardAgent=yes" ...
+
+# connection sharing (mkdir ~/.ssh/sockets) to speed up work with known hosts
+https://puppetlabs.com/blog/speed-up-ssh-by-reusing-connections
+
+Host *
+ControlMaster auto
+ControlPath ~/.ssh/sockets/%r@%h-%p
+ControlPersist 600

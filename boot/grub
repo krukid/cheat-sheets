@@ -1,0 +1,15 @@
+# linux partition suddenly deleted and grub can't find config file
+
+grub boots into a terminal prompt "grub>" and linux /boot/vmlinuz root=...
+has no effect.
+
+create a grub rescue disk (usb) and boot from it. open terminal and run
+`parted /dev/sda` or `./testdisk_static` (dl from inet) and figure out
+which partition used to be your boot partition
+(ubuntu uses ext4, one of these tools prints out such info when highlighting
+partitions, typically swap partition comes after boot partition,
+so that's another hint) => /dev/sdaX
+
+run `fsck /dev/sdaX` and agree to all fix prompts; reboot.
+
+grub should boot into normal menu mode and you can boot into linux again.

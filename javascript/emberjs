@@ -1,0 +1,15 @@
+### gotchas and workarounds
+
+1. emberjs is heavily opinionated when using ember-data.
+   if your api doesn't comply with jsonapi spec, then create your own
+   application/model serializers that will munge your payloads to
+   resemble a jsonapi document/fragment (meta, relationships, attributes, ...)
+
+2. emberjs tries to optimize different aspects of the app based on
+   assumptions and conventions, one of them being NOT reloading your model
+   if you're using dynamic segments in your route and navigating to that route
+   via link-to or transitionToRoute methods.
+
+   to work around this, we use before/after model hooks on your route handler
+   (that are called ALWAYS) and reload the model manually:
+   http://discuss.emberjs.com/t/reloading-model-when-using-transitiontoroute-approach/2614/6

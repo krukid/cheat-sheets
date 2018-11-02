@@ -1,0 +1,12 @@
+spd-say -l ru -t female3 -p +70 -i -50 -r -100 "Союз нерушимый республик советских навеки сплотила единая русь"
+
+;(function(text) {
+    let url = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=ru-RU&client=tw-ob&q='
+    url += encodeURIComponent(text)
+    window.open(url)
+})
+('Шнур выгнал, стала политической проституткой. Тварь одним словом. Родину за пару монет продает.');
+
+echo 'какая жопа!' | espeak -s 80 -v russian --stdin
+
+RHVoice (unable to build RHVoice-client): github.com -> RHVoice

@@ -1,0 +1,9 @@
+# optimization
+
+png:
+  mac: imageoptim (pngquant lossy, 80%, extra compression)
+
+# normalization
+
+svg:
+  nodejs: https://github.com/MintMe/mint-desktop-vue-web/blob/master/scripts/mounted/svgnorm.js

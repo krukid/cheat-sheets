@@ -1,0 +1,23 @@
+# ... setup k8s context, cluster, keys etc
+
+# get current context
+kubectl config current-context
+
+# start local management proxy
+kubectl proxy
+
+# apply config changes to current context
+kubectl apply -f some-config.yml
+
+# work with secrets
+kubectl get secrets
+kubectl describe secret <secret-name>
+
+# reload deployment
+kubectl patch deployment <deployment-name> -p  "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+
+# force replace, delete and then re-create the resource. Will cause a service outage
+kubectl replace --force -f ./pod.json
+
+# attach shell to kube pod container
+kubectl exec -it <pod-id> --container <container-id> /bin/sh
