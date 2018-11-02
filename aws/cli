@@ -7,11 +7,11 @@ http://docs.aws.amazon.com/cli/latest/userguide/installing.html#install-bundle-o
 # configure
 http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
-  aws configure --profile mint-admin-staging
+  aws configure --profile profile
 
 (see ~/.aws/*)
 
 # commands
 
-  aws s3 ls s3://mint-admin-staging --profile mint-admin-staging
-  aws s3 rm s3://mint-admin-staging/ --profile mint-admin-staging --dryrun --recursive
+  aws s3 ls s3://bucket --profile profile
+  aws s3 rm s3://bucket/ --profile profile --dryrun --recursive
