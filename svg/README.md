@@ -8,3 +8,6 @@ https://jakearchibald.github.io/svgomg/
 
 https://www.vectorizer.io/
 
+## normalization
+
+see: [svgnorm.js](svgnorm.js)
