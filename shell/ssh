@@ -1,0 +1,40 @@
+# install local ssh server
+
+    apt-get install openssh-server
+
+# configure local ssh server
+
+    nano ~/.ssh/authorized_keys
+    nano /etc/ssh/sshd_config
+
+# start local ssh server
+
+    /usr/sbin/sshd -D
+
+# connect to remote ssh server
+
+    ssh -i ~/.ssh/my_id_rsa <user>@<ip> -p <port>
+
+# start screen on remote host
+
+@see https://kb.iu.edu/d/acuy
+
+    # list open windows
+    ssh> screen -list
+
+    # restore screen
+    ssh> screen -r
+
+    # delete dead windows
+    ssh> screen -wipe
+    
+    # start screen
+    ssh> screen
+
+# common screen commands
+
+    `ctrl+a \` quit
+    `ctrl+a a` toggle previous window
+    `ctrl+a D` detach and quit screen
+
+

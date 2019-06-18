@@ -1,22 +1,20 @@
-//#region resolve promise on event emit
+// tree find
 
-var EventEmitter = require('events')
-var ee = new EventEmitter()
+function getArrayPath(root, pathAry) {
+  if (pathAry.length === 0) {
+    return root;
+  }
+  const [key, ...rest] = pathAry;
+  const node = root.find(({id}) => id === key);
+  if (node && node.children.length > 0) {
+    return getArrayPath(node.children, rest);
+  } else if (node) {
+    return node;
+  } else {
+    return null;
+  }
+}
 
-var p = new Promise((resolve, reject) => {
-    ee.on('foo', () => {
-        resolve()
-    })
-})
-
-;(async () => {
-
-    await p
-    console.log('lolz')
-})()
-
-;ee.emit('foo')
-
-//#endregion
-
-//
+function getStringPath(root, pathStr) {
+  return getArrayPath(root, pathStr.split('.'))
+}

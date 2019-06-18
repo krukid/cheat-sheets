@@ -1,0 +1,11 @@
+# list hw info
+
+    lshw
+
+# print architecture
+
+    uname -m
+
+# print os issue
+
+    cat /etc/issue

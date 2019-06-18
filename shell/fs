@@ -1,2 +1,5 @@
 # filter files within current directory (absolute paths)
 find $PWD -type f -maxdepth 1 ! -name Selection\*
+
+# get file descriptor from stdout
+cat <(echo "this returns handle of a file descriptor associated with stdout of command so we can 'cat' it")
