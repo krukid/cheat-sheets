@@ -21,3 +21,6 @@ kubectl replace --force -f ./pod.json
 
 # attach shell to kube pod container
 kubectl exec -it <pod-id> --container <container-id> /bin/sh
+
+# scale deployment replicas
+kubectl scale deployment <deplyment-name> --replicas=2

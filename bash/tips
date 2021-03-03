@@ -12,3 +12,4 @@
 8. split string with custom delimiter: IFS='.'; STR='1.2.3'; ARY=($STR); unset IFS
 9. cat package.json | jq '.dependencies | to_entries[] | .key + "@" + .value' | tail -n 1 | xargs npm info
 10. read prompt: read -rp "Message" VARNAME
+11. pipe messaging may break under heavy load

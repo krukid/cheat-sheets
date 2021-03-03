@@ -1,0 +1,56 @@
+# setting up free TK domain with wildcard SSL cert (nginx)
+https://liufuyang.github.io/2018/03/30/lets-encrypt-dns.html
+
+1. boot your own server or use hosting (https://contabo.com), get public IP
+2. set up ssh access to your host
+3. connect and install certbot via snap
+    https://letsencrypt.org/getting-started/
+    https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx
+
+4. run verification
+    https://certbot.eff.org/docs/using.html#manual
+
+    certbot certonly --manual --preferred-challenges dns \
+        -d yourdomain.com               # wildcard will not cover root
+        -d *.yourdomain.com             # covers "child" subdomains of root (depth = 1)
+        -d *.deeper.yourdomain.com      # covers "child" subdomains of specific subdomain
+
+    GOTCHA: if you omit explicit root domain from wildcard certificate, then it will not be covered
+    https://community.letsencrypt.org/t/certbot-wildcard-certificate-invalid-for-base-domain/58845
+
+5. register your domain at https://freenom.com
+
+    - set up DNS records:
+        NAME: '', TYPE: A, TTL: 300, TARGET: $YOUR_IP
+        NAME: 'WWW', --//--
+
+    - set up DNS verification record:
+        NAME: '_ACME-CHALLENGE', TYPE: TXT, TTL: 300, TARGET: $CERTBOT_CHALLENGE_VALUE
+
+    GOTCHA: If you set a large TTL for the challenge, you will have to wait for that amount of time
+      to update the certificate, if something gets screwed up
+
+6. wait for DNS records to update (response must equal cerbot challenge value)
+
+    watch -n 30 'dig -t txt +short _acme-challenge.runify.tk'
+
+7. go back to cerbot challenge and press enter to complete verification
+
+8. to attach to dockerized nginx, do
+
+    - mount /etc/letsencrypt as volume
+      https://certbot.eff.org/docs/using.html#where-are-my-certificates
+
+    - update nginx server conf
+      http://nginx.org/en/docs/http/configuring_https_servers.html
+
+        server {
+            listen 443 ssl;
+            ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+            ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+            ...
+
+    - optimize as needed (keepalive, ssl cache, worker count, ocsp stapling)
+      https://www.keycdn.com/support/ocsp-stapling
+
+9. certificate will have to be manually renewed upon expiration (same verification process)
