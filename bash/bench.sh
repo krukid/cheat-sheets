@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# also see apache benchmark (ab)
+#
 
 data() {
 	local ts="$(date +%s)_$1"
