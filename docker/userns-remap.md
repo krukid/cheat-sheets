@@ -9,12 +9,12 @@ machine:
 1. pick a user from your host system that you want to map onto container's root user.
 2. edit your /etc/subuid and /etc/subgid:
 
-  <hostuser>:1000:1
-  <hostuser>:10000:65535
+    <hostuser>:1000:1
+    <hostuser>:10000:65535
 
 3. add /etc/docker/daemon.json with the following content:
 
-  {"userns-remap": "<hostuser>"}
+    {"userns-remap": "<hostuser>"}
 
 4. sudo sysctl restart docker
 

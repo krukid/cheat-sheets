@@ -1,4 +1,4 @@
-https://github.com/nodejitsu/node-http-proxy/issues/382#issuecomment-238874229
+// https://github.com/nodejitsu/node-http-proxy/issues/382#issuecomment-238874229
 
 var http = require('http'),
     connect = require('connect'),

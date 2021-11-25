@@ -1,0 +1,15 @@
+- use `set -x` for debug; use `set -e` to terminate on any command error
+- prefer `[[]]` over `[]`, advantages: no word splitting, complex expressions
+- functions cannot return values, only exit codes. solutions:
+  - assign an existing global variable
+  - write to stdout and parse
+  - define a global readonly variable ("readonly" command)
+- use "define" command to define dynamic variables
+- use "flock" for mutexes
+- slice args after Nth: `${@:n}`
+- array length: `${#ary[@]}`
+- array item: `${ary[1]}`
+- split string with custom delimiter: `IFS='.'; STR='1.2.3'; ARY=($STR); unset IFS`
+- `cat package.json | jq '.dependencies | to_entries[] | .key + "@" + .value' | tail -n 1 | xargs npm info`
+- read prompt: `read -rp "Message" VARNAME`
+- pipe messaging may break under heavy load

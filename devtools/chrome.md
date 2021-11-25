@@ -1,0 +1,9 @@
+# console tips
+
+## find and highlight element by css selector
+
+    inspect($('[data-reactid=".h39uh7ho8w.1.0"]'))
+
+## browser cache and settings
+
+chrome://net-internals/#hsts -> query/delete by domain to clear hsts cache 

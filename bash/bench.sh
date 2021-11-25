@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# also see apache benchmark (ab)
+# WARN: apache benchmark (ab) is the better way to bench
 #
 
 data() {
