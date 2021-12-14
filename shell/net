@@ -21,3 +21,7 @@ sudo tcpdump -i wlan0 tcp port 1338 -Q out -vv -X
 
 # print just the ip given an interface name
 ipconfig getifaddr en0
+
+# watch open connections
+# install on alpine: apk add --no-cache iproute2-ss
+watch -n 0.1 'ss | grep ...'
