@@ -8,7 +8,7 @@
 
     db.getCollection('collection').aggregate([
         {
-            $project : { count: {$size: { "$ifNull": [ "$members", [] ] } }, companyName: 1, 'some-field': 1 }
+            $project : { count: {$size: { "$ifNull": [ "$aryField", [] ] } }, somename: 1, 'some-field': 1 }
         },
         {
             $sort: {"count":-1}
@@ -46,7 +46,7 @@
 ## backup all from docker
 
     docker-compose exec mongo bash
-    mkdir -p /tmp/backup && mongodump -d j2-dev -o /tmp/backup
+    mkdir -p /tmp/backup && mongodump -d "$DB" -o /tmp/backup
     docker cp mongo_container_1:/tmp/backup/. ./backup/
 
 ## restore all into docker
