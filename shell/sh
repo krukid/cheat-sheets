@@ -1,0 +1,3 @@
+# seq with xargs for lazy ranges (can be parallelized with -P)
+
+seq 1 500 | xargs -n 1 -I {} sh -c 'sleep 1 && echo "$@"' _ {}
